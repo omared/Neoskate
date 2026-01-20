@@ -23,12 +23,17 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
 
   const titleContainer = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.04, delayChildren: 0.5 } },
+    visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.5 } },
   };
 
   const titleLetter = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const } },
+    hidden: { opacity: 0, y: 40, filter: 'blur(10px)' },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      filter: 'blur(0px)',
+      transition: { duration: 1, ease: [0.22, 1, 0.36, 1] as const } 
+    },
   };
 
   const brandName = "NeoSkate";
@@ -46,15 +51,21 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
           className={`absolute inset-0 transition-theme ${isDarkMode ? 'bg-gradient-to-t from-emerald-950 via-black/80 to-black/20' : 'bg-gradient-to-t from-emerald-500/10 via-white/80 to-white/20'}`} 
         />
 
-        <motion.div style={{ opacity: textOpacity, y: textY }} className="relative z-10 text-center px-6 max-w-4xl">
+        <motion.div style={{ opacity: textOpacity, y: textY }} className="relative z-10 text-center px-6 max-w-5xl">
           <motion.h1 
             variants={titleContainer}
             initial="hidden"
             animate="visible"
-            className={`text-7xl md:text-9xl font-black uppercase tracking-tighter mb-4 flex justify-center overflow-hidden drop-shadow-2xl ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}
+            className={`text-6xl md:text-[8rem] font-black uppercase tracking-tighter mb-4 flex justify-center text-white pb-4`}
           >
             {brandName.split("").map((char, index) => (
-              <motion.span key={index} variants={titleLetter} className="inline-block">{char}</motion.span>
+              <motion.span 
+                key={index} 
+                variants={titleLetter} 
+                className="inline-block relative"
+              >
+                {char}
+              </motion.span>
             ))}
           </motion.h1>
           
@@ -62,7 +73,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
-            className={`text-xl md:text-3xl font-light mb-6 tracking-widest ${isDarkMode ? 'text-emerald-400' : 'text-emerald-600'}`}
+            className={`text-xl md:text-3xl font-light mb-6 tracking-[0.3em] uppercase ${isDarkMode ? 'text-emerald-400' : 'text-emerald-600'}`}
           >
             MUÉVETE VERDE, VIVE LIGERO
           </motion.h2>
@@ -77,10 +88,10 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
           </motion.p>
 
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 1.8 }} className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className={`px-10 py-4 font-bold rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl ${isDarkMode ? 'bg-white text-black hover:bg-emerald-500' : 'bg-black text-white hover:bg-emerald-600'}`}>
+            <button className={`px-10 py-4 font-black uppercase tracking-widest rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl ${isDarkMode ? 'bg-emerald-500 text-black hover:bg-white' : 'bg-black text-white hover:bg-emerald-500 hover:text-black'}`}>
               DESBLOQUEAR AHORA
             </button>
-            <button className={`px-10 py-4 border-2 font-bold rounded-full transition-all duration-300 hover:scale-105 active:scale-95 ${isDarkMode ? 'border-white text-white hover:bg-white hover:text-black' : 'border-black text-black hover:bg-black hover:text-white'}`}>
+            <button className={`px-10 py-4 border-2 font-black uppercase tracking-widest rounded-full transition-all duration-300 hover:scale-105 active:scale-95 ${isDarkMode ? 'border-white text-white hover:bg-white hover:text-black' : 'border-black text-black hover:bg-black hover:text-white'}`}>
               VER UBICACIONES
             </button>
           </motion.div>
