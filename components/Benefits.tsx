@@ -14,11 +14,11 @@ const Benefits: React.FC = () => {
   ];
 
   return (
-    <div className="py-24 bg-zinc-950" aria-labelledby="benefits-title">
+    <div className="py-24 dark:bg-zinc-950 bg-slate-50 transition-theme" aria-labelledby="benefits-title">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 id="benefits-title" className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4">Ventajas de Alquilar</h2>
-          <p className="text-zinc-500 max-w-xl mx-auto font-light leading-relaxed">
+          <h2 id="benefits-title" className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4 dark:text-white text-slate-900">Ventajas de Alquilar</h2>
+          <p className="dark:text-zinc-500 text-slate-500 max-w-xl mx-auto font-light leading-relaxed">
             Descubre por qué miles de usuarios eligen NeoSkate para su movilidad diaria. Eficiencia, ahorro y libertad.
           </p>
         </div>
@@ -31,13 +31,13 @@ const Benefits: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="flex flex-col items-center text-center p-8 rounded-3xl hover:bg-zinc-900 transition-colors duration-300 border border-transparent hover:border-zinc-800 group"
+              className="flex flex-col items-center text-center p-8 rounded-3xl dark:hover:bg-zinc-900 hover:bg-white transition-all duration-300 border border-transparent dark:hover:border-zinc-800 hover:border-slate-200 hover:shadow-xl group"
             >
               <div className="w-16 h-16 bg-emerald-500/10 text-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-500 group-hover:text-black transition-all duration-500" aria-hidden="true">
                 {React.cloneElement(item.icon as React.ReactElement<any>, { size: 32 })}
               </div>
-              <h3 className="text-xl font-bold mb-3 uppercase tracking-wider">{item.title}</h3>
-              <p className="text-zinc-400 font-light leading-relaxed">{item.desc}</p>
+              <h3 className="text-xl font-bold mb-3 uppercase tracking-wider dark:text-white text-slate-900">{item.title}</h3>
+              <p className="dark:text-zinc-400 text-slate-600 font-light leading-relaxed">{item.desc}</p>
             </motion.article>
           ))}
         </div>

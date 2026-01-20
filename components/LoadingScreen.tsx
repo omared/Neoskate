@@ -3,9 +3,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap } from 'lucide-react';
 
-const LoadingScreen: React.FC = () => {
+interface LoadingScreenProps {
+  isDark: boolean;
+}
+
+const LoadingScreen: React.FC<LoadingScreenProps> = ({ isDark }) => {
   return (
-    <div className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center">
+    <div className={`fixed inset-0 z-[100] transition-theme ${isDark ? 'bg-black text-white' : 'bg-white text-zinc-900'} flex flex-col items-center justify-center`}>
       <motion.div 
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -26,7 +30,7 @@ const LoadingScreen: React.FC = () => {
         </motion.h2>
       </div>
       
-      <div className="w-48 h-1 bg-zinc-900 rounded-full mt-4 relative overflow-hidden">
+      <div className={`w-48 h-1 ${isDark ? 'bg-zinc-900' : 'bg-slate-100'} rounded-full mt-4 relative overflow-hidden`}>
         <motion.div 
           initial={{ x: "-100%" }}
           animate={{ x: "0%" }}
@@ -39,9 +43,9 @@ const LoadingScreen: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="mt-6 text-zinc-500 text-xs uppercase tracking-[0.4em] animate-pulse"
+        className="mt-6 text-zinc-500 text-[10px] uppercase tracking-[0.4em] animate-pulse"
       >
-        Iniciando Sistemas...
+        Cargando Experiencia...
       </motion.p>
     </div>
   );

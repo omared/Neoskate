@@ -34,8 +34,8 @@ const Testimonials: React.FC = () => {
   return (
     <div className="py-24 container mx-auto px-6">
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4">La comunidad NeoSkate</h2>
-        <p className="text-zinc-500 font-light text-lg">Únete a los miles de riders que ya han transformado su forma de moverse.</p>
+        <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4 dark:text-white text-slate-900">La comunidad NeoSkate</h2>
+        <p className="dark:text-zinc-500 text-slate-500 font-light text-lg">Únete a los miles de riders que ya han transformado su forma de moverse.</p>
       </div>
       
       <div className="max-w-7xl mx-auto">
@@ -47,11 +47,11 @@ const Testimonials: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-zinc-900/40 border border-zinc-800/50 p-8 rounded-[2rem] flex flex-col h-full hover:border-emerald-500/30 transition-colors duration-500 group"
+              className="dark:bg-zinc-900/40 bg-white border dark:border-zinc-800/50 border-slate-200 p-8 rounded-[2rem] flex flex-col h-full hover:border-emerald-500/30 hover:shadow-2xl transition-all duration-500 group"
             >
               <div className="flex items-center space-x-4 mb-6">
                 <div className="relative shrink-0">
-                  <div className="w-16 h-16 rounded-2xl overflow-hidden border-2 border-zinc-800 group-hover:border-emerald-500/50 transition-colors duration-500">
+                  <div className="w-16 h-16 rounded-2xl overflow-hidden border-2 dark:border-zinc-800 border-slate-100 group-hover:border-emerald-500/50 transition-colors duration-500">
                     <img src={review.image} alt={review.name} className="w-full h-full object-cover" />
                   </div>
                   <div className="absolute -bottom-2 -right-2 bg-emerald-500 p-1.5 rounded-lg text-black shadow-lg">
@@ -59,12 +59,12 @@ const Testimonials: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-black text-white uppercase tracking-tighter text-sm leading-tight">{review.name}</h3>
+                  <h3 className="font-black dark:text-white text-slate-900 uppercase tracking-tighter text-sm leading-tight">{review.name}</h3>
                   <p className="text-emerald-500/70 font-bold uppercase tracking-widest text-[9px] mt-1">{review.role}</p>
                 </div>
               </div>
               
-              <p className="text-zinc-400 italic text-sm font-light leading-relaxed flex-grow">
+              <p className="dark:text-zinc-400 text-slate-600 italic text-sm font-light leading-relaxed flex-grow">
                 "{review.text}"
               </p>
               

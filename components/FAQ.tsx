@@ -7,13 +7,13 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-zinc-800">
+    <div className="border-b dark:border-zinc-800 border-slate-200">
       <button 
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         className="w-full py-8 flex justify-between items-center text-left hover:text-emerald-500 transition-colors duration-300 group focus:outline-none focus:text-emerald-400"
       >
-        <span className="text-xl md:text-2xl font-bold uppercase tracking-tight">{question}</span>
+        <span className="text-xl md:text-2xl font-bold uppercase tracking-tight dark:text-white text-slate-900">{question}</span>
         <div className="shrink-0 ml-4 transition-transform duration-300">
           {isOpen ? <ChevronUp className="text-emerald-500" /> : <ChevronDown className="group-hover:text-emerald-500" />}
         </div>
@@ -26,7 +26,7 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
             exit={{ height: 0, opacity: 0 }}
             className="overflow-hidden"
           >
-            <p className="pb-8 text-zinc-400 font-light leading-relaxed text-lg">
+            <p className="pb-8 dark:text-zinc-400 text-slate-600 font-light leading-relaxed text-lg">
               {answer}
             </p>
           </motion.div>
@@ -61,9 +61,9 @@ const FAQ: React.FC = () => {
   ];
 
   return (
-    <div className="py-24 bg-black" aria-labelledby="faq-title">
+    <div className="py-24 dark:bg-black bg-white transition-theme" aria-labelledby="faq-title">
       <div className="container mx-auto px-6 max-w-4xl">
-        <h2 id="faq-title" className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-12">Preguntas Frecuentes</h2>
+        <h2 id="faq-title" className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-12 dark:text-white text-slate-900">Preguntas Frecuentes</h2>
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
             <FAQItem key={idx} question={faq.question} answer={faq.answer} />

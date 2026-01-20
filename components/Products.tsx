@@ -38,11 +38,11 @@ const Products: React.FC = () => {
     <div className="py-24 container mx-auto px-6" aria-labelledby="fleet-title">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div>
-          <h2 id="fleet-title" className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4">Nuestra Flota Urbana</h2>
+          <h2 id="fleet-title" className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 dark:text-white text-slate-900">Nuestra Flota Urbana</h2>
           <div className="h-1 w-24 bg-emerald-500" aria-hidden="true"></div>
         </div>
-        <div className="max-w-md bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800">
-          <p className="text-zinc-400 font-light leading-relaxed">
+        <div className="max-w-md dark:bg-zinc-900/50 bg-white p-6 rounded-2xl border dark:border-zinc-800 border-slate-200 shadow-sm">
+          <p className="dark:text-zinc-400 text-slate-600 font-light leading-relaxed">
             Vehículos diseñados exclusivamente para el uso compartido. Más seguros, más duraderos y siempre listos para ti.
           </p>
         </div>
@@ -56,10 +56,10 @@ const Products: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
-            className="group relative bg-zinc-900/40 border border-zinc-800 rounded-[2.5rem] overflow-hidden hover:bg-zinc-900 transition-all duration-500 flex flex-col"
+            className="group relative dark:bg-zinc-900/40 bg-white border dark:border-zinc-800 border-slate-200 rounded-[2.5rem] overflow-hidden hover:dark:bg-zinc-900 hover:shadow-2xl transition-all duration-500 flex flex-col"
           >
             <div className="absolute top-6 left-6 z-20">
-              <span className="px-4 py-1.5 bg-white text-black text-[10px] font-black uppercase tracking-widest rounded-full shadow-xl">
+              <span className="px-4 py-1.5 bg-black text-white dark:bg-white dark:text-black text-[10px] font-black uppercase tracking-widest rounded-full shadow-xl">
                 {item.label}
               </span>
             </div>
@@ -70,34 +70,34 @@ const Products: React.FC = () => {
                 alt={`Patineta ${item.name}`} 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t dark:from-zinc-900/80 from-white/80 to-transparent"></div>
             </div>
 
             <div className="p-10 flex-grow flex flex-col">
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <h3 className="text-3xl font-black uppercase tracking-tighter">{item.name}</h3>
+                  <h3 className="text-3xl font-black uppercase tracking-tighter dark:text-white text-slate-900">{item.name}</h3>
                   <div className="flex items-center space-x-2 mt-2">
                     <Navigation size={14} className="text-emerald-500" />
-                    <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest">Disponible ahora</span>
+                    <span className="dark:text-zinc-500 text-slate-400 text-xs font-bold uppercase tracking-widest">Disponible ahora</span>
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 mb-8 bg-black/40 p-4 rounded-2xl border border-zinc-800/50">
+              <div className="grid grid-cols-2 gap-4 mb-8 dark:bg-black/40 bg-slate-50 p-4 rounded-2xl border dark:border-zinc-800/50 border-slate-200">
                 <div>
-                  <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest mb-1">Desbloqueo</p>
-                  <p className="text-xl font-black text-white">{item.price}</p>
+                  <p className="text-[10px] dark:text-zinc-500 text-slate-400 uppercase font-bold tracking-widest mb-1">Desbloqueo</p>
+                  <p className="text-xl font-black dark:text-white text-slate-900">{item.price}</p>
                 </div>
                 <div>
-                  <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest mb-1">Por Minuto</p>
+                  <p className="text-[10px] dark:text-zinc-500 text-slate-400 uppercase font-bold tracking-widest mb-1">Por Minuto</p>
                   <p className="text-xl font-black text-emerald-500">{item.rate}</p>
                 </div>
               </div>
               
               <ul className="space-y-3 mb-8 flex-grow" aria-label={`Especificaciones de ${item.name}`}>
                 {item.specs.map(spec => (
-                  <li key={spec} className="flex items-center text-zinc-400 text-sm font-light">
+                  <li key={spec} className="flex items-center dark:text-zinc-400 text-slate-600 text-sm font-light">
                     <Zap size={14} className="text-emerald-500/50 mr-3" aria-hidden="true" />
                     {spec}
                   </li>
@@ -105,7 +105,7 @@ const Products: React.FC = () => {
               </ul>
 
               <button 
-                className="w-full py-5 bg-white text-black rounded-2xl font-black uppercase tracking-widest group-hover:bg-emerald-500 transition-all duration-300 active:scale-95 shadow-lg"
+                className="w-full py-5 dark:bg-white dark:text-black bg-black text-white rounded-2xl font-black uppercase tracking-widest hover:bg-emerald-500 hover:text-black transition-all duration-300 active:scale-95 shadow-lg"
               >
                 Elegir esta Neo
               </button>
